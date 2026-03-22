@@ -1,0 +1,25 @@
+model:
+  name: "bert-base-uncased"
+  max_num_labels: 5
+
+training:
+  num_steps: 1000
+  batch_size: 8
+  learning_rate: 2e-5
+  optimizer: "adamw"
+  warmup_steps: 100
+  weight_decay: 0.01
+  gradient_clip_norm: 1.0
+  eval_every: 100
+  save_every: 200
+  checkpoint_dir: "checkpoints"
+  log_every: 10
+
+data:
+  synthetic_data_path: "data/synthetic_data.json"
+  max_negatives: 5
+  train_split: 0.9
+
+huggingface:
+  model_id: "your-username/bi-encoder-zero-shot"
+  private: true
